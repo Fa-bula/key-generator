@@ -15,13 +15,6 @@ def connect_db():
     return sqlite3.connect(app.config['DATABASE'])
 
 
-def init_db():
-    with closing(connect_db) as db:
-        with app.open_resource('schema.sql', mode='r') as f:
-            db.cursor().executescript(f.read())
-        db.commit()
-
-
 def string_generator(size=4, chars=string.letters + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
@@ -115,4 +108,4 @@ def chooseKeyToRepay():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
