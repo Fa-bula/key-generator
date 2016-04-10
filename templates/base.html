@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <ul>
+      <li>
+	<a href="/">Получить новый ключ</a>
+      </li>
+      <li>
+	<a href="/status/">Проверить текущий статус ключа</a>
+      </li>
+      <li>
+	<a href="/repay/">Погасить выданный ранее ключ</a>
+      </li>
+    {% block body %}{% endblock %}
+    <p> Осталось {{ remain }} невыданных ключей </p>
+  </body>
+</html>

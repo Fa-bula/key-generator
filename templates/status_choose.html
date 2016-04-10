@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} Запрос статуса ключа {% endblock %}
+
+{% block body %}
+
+<form action="/status/" method="POST">
+  <h3> Введите ключ, статус которого хотите запросить </h3>
+  <div>
+    <textarea name="key" placeholder="Ключ..." required></textarea>
+  </div>
+  <div>
+    <button type="submit">Запросить</button>
+  </div>
+  {% endblock %}
