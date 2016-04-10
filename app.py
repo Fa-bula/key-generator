@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from flask import Flask, request, g, redirect, url_for, render_template
-from contextlib import closing
+from werkzeug.contrib.fixers import ProxyFix
 import sqlite3
 import string
 import random
@@ -106,6 +106,6 @@ def chooseKeyToRepay():
     return render_template('repay_choose.html',
                            remain=get_remain_keys_number())
 
-
+app.wsgi_app = ProxyFix(app.wsgi_app)
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
